@@ -13,12 +13,29 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import dagger.hilt.android.AndroidEntryPoint;
+import edu.eci.ieti.taskplannerapp.analytics.AnalyticsAdapter;
 import edu.eci.ieti.taskplannerapp.databinding.ActivityMainBinding;
+import edu.eci.ieti.taskplannerapp.persistence.dao.UserDao;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.concurrent.Executor;
+
+import javax.inject.Inject;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
+
+    @Inject
+    public AnalyticsAdapter analyticsAdapter;
+
+    @Inject
+    public UserDao userDao;
+
+    @Inject
+    public Executor executor;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
